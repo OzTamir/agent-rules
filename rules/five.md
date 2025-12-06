@@ -89,3 +89,12 @@ Continue asking "Why?" until you reach a root cause that cannot be further decom
 - Implement streaming parser (addresses immediate issue)
 - Improve requirements gathering process (prevents recurrence)
 - Add capacity planning to requirements process (systemic improvement)
+
+## Summary
+
+1. **Always use Five Whys** - Ask "Why?" five times (or more) to reach the root cause before implementing solutions
+2. **Define the problem clearly** - Start with observable facts, not assumptions
+3. **Validate the root cause** - Verify the logical chain and test your hypothesis
+4. **Address root causes, not symptoms** - Fix fundamental issues to prevent recurrence
+5. **Create preventive measures** - Implement systemic improvements to avoid future problems
+6. **Consider multiple root causes** - Some problems have multiple contributing factors

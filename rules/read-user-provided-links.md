@@ -41,7 +41,7 @@ When a user provides a web link, determine what type it is:
 
 Use the `web_search` tool with the exact URL provided by the user:
 
-```
+```bash
 web_search(search_term: "https://example.com/page")
 ```
 
@@ -72,28 +72,28 @@ After reading the link:
 
 ❌ **Don't**: Use web search to find a page when the user provided a direct link
 
-```
+```text
 User: "Check this: https://example.com/docs/api"
 Agent: [Uses web_search with "example.com docs api" instead of the exact URL]
 ```
 
 ❌ **Don't**: Navigate manually using browser tools when a direct link is provided
 
-```
+```text
 User: "Read this: https://docs.example.com/guide"
 Agent: [Uses browser_navigate and tries to find the page instead of using the exact URL]
 ```
 
 ❌ **Don't**: Ignore GitHub file links or read them as regular web pages
 
-```
+```text
 User: "See this file: https://github.com/user/repo/blob/main/src/index.ts"
 Agent: [Tries to read the GitHub web page instead of fetching the raw file]
 ```
 
 ❌ **Don't**: Modify or search for alternatives to the provided link
 
-```
+```text
 User: "Check https://specific-version.example.com/docs"
 Agent: [Searches for "example.com docs" instead of using the specific version URL]
 ```
@@ -102,14 +102,14 @@ Agent: [Searches for "example.com docs" instead of using the specific version UR
 
 ✅ **Do**: Use the exact URL provided by the user
 
-```
+```text
 User: "Check this: https://example.com/docs/api"
 Agent: [Uses web_search with the exact URL: "https://example.com/docs/api"]
 ```
 
 ✅ **Do**: Convert GitHub file links to raw URLs and fetch with curl
 
-```
+```text
 User: "See this file: https://github.com/user/repo/blob/main/src/index.ts"
 Agent: [Converts to raw URL and uses curl:
   curl -s https://raw.githubusercontent.com/user/repo/main/src/index.ts]
@@ -117,14 +117,14 @@ Agent: [Converts to raw URL and uses curl:
 
 ✅ **Do**: Use the exact link even if you think you know what it contains
 
-```
+```text
 User: "Read this: https://docs.example.com/v2.0/api-reference"
 Agent: [Uses web_search with exact URL: "https://docs.example.com/v2.0/api-reference"]
 ```
 
 ✅ **Do**: Handle GitHub repository links as regular URLs
 
-```
+```text
 User: "Check this repo: https://github.com/user/repo"
 Agent: [Uses web_search with exact URL: "https://github.com/user/repo"]
 ```
@@ -135,13 +135,13 @@ Agent: [Uses web_search with exact URL: "https://github.com/user/repo"]
 
 GitHub file links follow this pattern:
 
-```
+```text
 https://github.com/{owner}/{repo}/blob/{branch}/{path}
 ```
 
 Convert to raw URL:
 
-```
+```text
 https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{path}
 ```
 

@@ -26,6 +26,10 @@ cursor:
    - Search the web for solutions to the problem you've encountered
 
 2. **CLI Utilities Over Manual Implementation**: Always prefer using official CLI tools and generators:
+   - Use `npx shadcn@latest add <component>` instead of manually creating components
+   - Use project generators (e.g., `create-next-app`, `create-react-app`) instead of manual setup
+   - Use official CLI tools for configuration (e.g., `eslint --init`, `prettier --init`)
+   - Prefer library-provided generators over manual implementation
 
 3. **No First-Principles Solutions**: Do not:
 
@@ -89,3 +93,11 @@ Custom implementation is only acceptable when:
 3. You have searched the codebase and found no existing patterns
 4. You've searched the web for solutions to your problem
 5. The solution is truly unique to this codebase and not a standard pattern
+
+## Summary
+
+1. **Check documentation first** - Use available tools (shadcn, Context7 MCP, web search) before implementing solutions
+2. **Prefer CLI utilities** - Use official CLI tools and generators instead of manual implementation
+3. **Search before debugging** - Always search the web for error messages before attempting custom debugging
+4. **No first-principles solutions** - Don't create components or features from scratch when tools exist
+5. **Custom implementation is last resort** - Only implement custom solutions after verifying no tools or patterns exist
