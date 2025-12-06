@@ -104,6 +104,14 @@ git commit -m "Update agent-rules submodule"
 rulesync generate --targets cursor,claudecode --features rules
 ```
 
+**After generating**, update your `.gitignore` to exclude generated files:
+
+```bash
+rulesync gitignore
+```
+
+This automatically adds all Rulesync-generated files (like `.cursorrules`, `CLAUDE.md`, etc.) to your `.gitignore`, keeping your repository clean.
+
 ### Modifying Rules (Rare - Use with Caution)
 
 **IMPORTANT**: Rules in `.rulesync/rules/` are **shared across multiple projects**. Modifying them here will affect other repositories using the same submodule. Only modify rules if:
@@ -230,8 +238,14 @@ If you need to add a shared rule:
    ```
 
 6. **Regenerate configurations**:
+
    ```bash
    rulesync generate --targets cursor,claudecode --features rules
+   ```
+
+7. **Update `.gitignore`** (if needed):
+   ```bash
+   rulesync gitignore
    ```
 
 ## Examples of What NOT to Do
@@ -240,6 +254,7 @@ If you need to add a shared rule:
 ❌ **Don't**: Modify rules in `.rulesync/rules/` for project-specific needs - these rules are shared across projects
 ❌ **Don't**: Commit submodule changes without understanding they affect other repositories
 ❌ **Don't**: Skip running `rulesync generate` after updating the submodule
+❌ **Don't**: Commit generated files (`.cursorrules`, `CLAUDE.md`) to git - use `rulesync gitignore` to exclude them
 ❌ **Don't**: Create project-specific rules in `.rulesync/rules/` - use a different location
 ❌ **Don't**: Modify `.rulesync/mcp.json` - it's part of the shared submodule
 ❌ **Don't**: Ignore submodule updates - keep it current to get latest rule improvements
@@ -250,6 +265,7 @@ If you need to add a shared rule:
 ✅ **Do**: Read and follow rules from `.rulesync/rules/` - they're automatically active
 ✅ **Do**: Update the submodule reference when new rules are available: `git submodule update --remote .rulesync`
 ✅ **Do**: Run `rulesync generate` after updating the submodule to regenerate configurations
+✅ **Do**: Run `rulesync gitignore` after generating to automatically exclude generated files from git
 ✅ **Do**: Check `.rulesync/rules/` to understand what guidelines apply to your work
 ✅ **Do**: Commit submodule reference updates in the parent repository after pulling changes
 ✅ **Do**: Use Rulesync MCP tools when available for reading rules programmatically
@@ -280,6 +296,9 @@ git commit -m "Update agent-rules submodule to latest"
 
 # 3. Regenerate configurations
 rulesync generate --targets cursor,claudecode --features rules
+
+# 4. Update .gitignore (if needed)
+rulesync gitignore
 ```
 
 ### Scenario 3: Cloning a Repository with Submodule
@@ -296,6 +315,9 @@ git submodule update --init --recursive
 
 # Generate configurations (if not already generated)
 rulesync generate --targets cursor,claudecode --features rules
+
+# Update .gitignore to exclude generated files
+rulesync gitignore
 ```
 
 ### Scenario 4: Modifying Shared Rules (Rare)
@@ -321,6 +343,9 @@ git commit -m "Update agent-rules submodule"
 
 # 5. Regenerate configurations
 rulesync generate --targets cursor,claudecode --features rules
+
+# 6. Update .gitignore (if needed)
+rulesync gitignore
 ```
 
 ## Important Notes
@@ -330,6 +355,7 @@ rulesync generate --targets cursor,claudecode --features rules
 - **Generated files are read-only**: Files like `.cursorrules` and `CLAUDE.md` are auto-generated - never edit them directly
 - **Update submodule regularly**: Keep the submodule current to get latest rule improvements: `git submodule update --remote .rulesync`
 - **Always regenerate after updates**: Run `rulesync generate` after updating the submodule to refresh generated files
+- **Use gitignore functionality**: Run `rulesync gitignore` after generating to automatically add generated files to `.gitignore`
 - **Modify rules carefully**: Only modify `.rulesync/rules/` if changes should apply to all projects using these rules
 - **Project-specific rules**: For rules specific to this project only, use a location outside `.rulesync/`
 - **MCP configuration**: The `.rulesync/mcp.json` file is part of the submodule and maintained centrally
@@ -341,5 +367,6 @@ rulesync generate --targets cursor,claudecode --features rules
 3. **Read and follow the rules** - Check `.rulesync/rules/` to understand guidelines that apply to your work
 4. **Update submodule regularly** - Use `git submodule update --remote .rulesync` to get latest rule updates
 5. **Regenerate after updates** - Always run `rulesync generate` after updating the submodule
-6. **Modify rules carefully** - Only change `.rulesync/rules/` if changes should affect all projects
-7. **Never edit generated files** - Files like `.cursorrules` and `CLAUDE.md` are auto-generated from `.rulesync/rules/`
+6. **Use gitignore functionality** - Run `rulesync gitignore` after generating to exclude generated files from git
+7. **Modify rules carefully** - Only change `.rulesync/rules/` if changes should affect all projects
+8. **Never edit generated files** - Files like `.cursorrules` and `CLAUDE.md` are auto-generated from `.rulesync/rules/`

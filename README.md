@@ -48,6 +48,16 @@ rulesync generate --targets cursor,claudecode
 
 Rulesync will automatically discover and use the rules and commands from the `.rulesync` directory.
 
+### Step 4: Configure Gitignore
+
+After generating configurations, use Rulesync's gitignore functionality to automatically add generated files to your `.gitignore`:
+
+```bash
+rulesync gitignore
+```
+
+This command automatically appends the paths of all Rulesync-generated files (like `.cursorrules`, `CLAUDE.md`, etc.) to your `.gitignore` file, ensuring they are excluded from version control. This keeps your repository clean and prevents conflicts with generated files.
+
 ### Updating the Submodule
 
 To update the rules to the latest version:
