@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {}
+    },
+    "linear": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"]
+    },
+    "Notion": {
+      "url": "https://mcp.notion.com/mcp"
+    },
+    "rulesync-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "rulesync", "mcp"],
+      "env": {}
+    }
+  }
+}
