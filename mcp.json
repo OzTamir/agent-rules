@@ -13,6 +13,9 @@
     "Notion": {
       "url": "https://mcp.notion.com/mcp"
     },
+    "supabase": {
+      "url": "https://mcp.supabase.com/mcp"
+    },
     "rulesync-mcp": {
       "type": "stdio",
       "command": "npx",
